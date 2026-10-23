@@ -1,0 +1,5 @@
+BK001;Algoritma;Budi;Informatika;2020;5
+BK002;Struktur Data;Sari;Informatika;2021;3
+BK003;Jaringan Komputer;Andi;Jaringan;2019;2
+BK004;Sistem Operasi;Dewi;Informatika;2018;2
+BK009;Basis Data;Rina;Informatika;2022;0
