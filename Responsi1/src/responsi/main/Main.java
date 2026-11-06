@@ -58,7 +58,8 @@ public class Main {
         app.jalankan();
     }
 
-    // loop menu utama pakai do-while biar minimal tampil sekali, lalu switch-case buat milih menu
+    // loop menu utama pakai do-while biar minimal tampil sekali, lalu switch-case
+    // buat milih menu
     public void jalankan() {
         int pilihan = -1;
 
@@ -280,7 +281,8 @@ public class Main {
         }
     }
 
-    // menu 4: pendaftaran anggota baru, ada loop while biar maksa input ulang kalau ID salah
+    // menu 4: pendaftaran anggota baru, ada loop while biar maksa input ulang kalau
+    // ID salah
     private void menuDaftarkanAnggotaUI() {
         System.out.println("\n--- Pendaftaran Anggota Baru ---");
 
@@ -290,7 +292,8 @@ public class Main {
             idAnggota = scanner.nextLine().trim();
 
             if (!Validator.validasiIdAnggota(idAnggota)) {
-                System.out.println("[GAGAL] Format ID tidak valid! Harus diawali 'AGT' diikuti 3 digit angka (contoh: AGT001).");
+                System.out.println(
+                        "[GAGAL] Format ID tidak valid! Harus diawali 'AGT' diikuti 3 digit angka (contoh: AGT001).");
                 System.out.println("Silakan masukkan ulang ID yang benar.");
                 continue;
             }
@@ -325,7 +328,8 @@ public class Main {
         }
     }
 
-    // menu 5: transaksi pinjam buku, pakai try-catch-finally dan nested try-catch buat validasi input
+    // menu 5: transaksi pinjam buku, pakai try-catch-finally dan nested try-catch
+    // buat validasi input
     private void menuPinjamBukuUI() {
         System.out.println("\n--- Peminjaman Buku ---");
 
@@ -377,7 +381,8 @@ public class Main {
             // kalau stok habis, masukin ke antrian
             if (buku != null && anggota != null) {
                 int posisi = perpustakaan.masukAntrian(buku, anggota);
-                System.out.println("[GAGAL] Buku \"" + buku.getJudul() + "\" tidak tersedia. Anda masuk antrian (posisi " + posisi + ").");
+                System.out.println("[GAGAL] Buku \"" + buku.getJudul()
+                        + "\" tidak tersedia. Anda masuk antrian (posisi " + posisi + ").");
             } else {
                 System.out.println("[GAGAL] " + e.getMessage());
             }
@@ -530,7 +535,8 @@ public class Main {
         if (!anggotaDimuat.isEmpty()) {
             perpustakaan.setDaftarAnggota(anggotaDimuat);
             perpustakaan.sinkronkanDaftarPinjam();
-            System.out.println("[OK] Berhasil memuat " + anggotaDimuat.size() + " anggota dari '" + FILE_ANGGOTA + "'.");
+            System.out
+                    .println("[OK] Berhasil memuat " + anggotaDimuat.size() + " anggota dari '" + FILE_ANGGOTA + "'.");
         } else {
             System.out.println("[INFO] Tidak ada data anggota yang dimuat dari '" + FILE_ANGGOTA + "'.");
         }
@@ -539,10 +545,16 @@ public class Main {
 
 /*
  * Catatan perbedaan Assertion vs Exception di program ini:
- * 1. Assertion (kata kunci assert) dipakai buat ngecek bug logika internal programmer (invarian), misalnya buat
- *    mastiin stok buku gak boleh minus setelah transaksi atau buku yang dipinjam anggota gak ngelewatin batas MAX_PINJAM.
- *    Assert cuma aktif kalau program dijalankan pakai opsi '-ea' pas tahap development/testing, dan bukan buat validasi input user.
- * 2. Exception (seperti BukuTidakTersediaException atau BatasPinjamException) dipakai buat nanganin kondisi error runtime
- *    yang wajar terjadi saat program dipakai sehari-hari, misalnya pas user mau minjam buku yang stoknya habis atau
- *    pinjamannya udah penuh. Exception harus ditangkap pakai try-catch biar aplikasi gak crash dan tetap jalan lancar.
+ * 1. Assertion (kata kunci assert) dipakai buat ngecek bug logika internal
+ * programmer (invarian), misalnya buat
+ * mastiin stok buku gak boleh minus setelah transaksi atau buku yang dipinjam
+ * anggota gak ngelewatin batas MAX_PINJAM.
+ * Assert cuma aktif kalau program dijalankan pakai opsi '-ea' pas tahap
+ * development/testing, dan bukan buat validasi input user.
+ * 2. Exception (seperti BukuTidakTersediaException atau BatasPinjamException)
+ * dipakai buat nanganin kondisi error runtime
+ * yang wajar terjadi saat program dipakai sehari-hari, misalnya pas user mau
+ * minjam buku yang stoknya habis atau
+ * pinjamannya udah penuh. Exception harus ditangkap pakai try-catch biar
+ * aplikasi gak crash dan tetap jalan lancar.
  */
