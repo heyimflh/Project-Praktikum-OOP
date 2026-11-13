@@ -1,0 +1,11 @@
+===== LAPORAN NILAI SISWA =====
+No | Nama              | Nilai  | Status
+1  | Budi Santoso      | 85.0   | Lulus
+2  | Siti Aminah       | 65.5   | Tidak Lulus
+3  | Andi Pratama      | 70.0   | Lulus
+
+===== RINGKASAN =====
+Jumlah Siswa        : 3
+Rata-rata Nilai     : 73.50
+Jumlah Lulus        : 2
+Jumlah Tidak Lulus  : 1

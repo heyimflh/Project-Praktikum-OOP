@@ -1,0 +1,14 @@
+==============================================
+          LAPORAN NILAI MAHASISWA
+==============================================
+No  NIM          Nama                 Nilai  Grade  Status
+----------------------------------------------------------
+1   0325030      MUHAMMAD FAKHRI      85.00  A      LULUS
+----------------------------------------------------------
+STATISTIK KELAS
+Jumlah Mahasiswa   : 1
+Rata-rata Nilai    : 85.00
+Jumlah Lulus       : 1
+Jumlah Tidak Lulus : 0
+Standar Kelulusan  : 70.0
+==============================================

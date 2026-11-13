@@ -1,25 +1,71 @@
-# LAPORAN PRAKTIKUM PEMROGRAMAN BERORIENTASI OBJEK
+<div align="center">
+
+# 🚗 LAPORAN PRAKTIKUM PEMROGRAMAN BERORIENTASI OBJEK
+
 ## Praktik Lab Session 3B: Pengembangan Program Berbasis Object-Oriented Programming (OOP)
+
+### RentaGo — Sistem Manajemen Rental Kendaraan
+
+![Java](https://img.shields.io/badge/Java-JDK_11_%7C_17_%7C_25-ED8B00?logo=openjdk&logoColor=white)
+![Paradigma](https://img.shields.io/badge/Paradigma-OOP-8A2BE2)
+![Test Case](https://img.shields.io/badge/Test_Case-13%2F13_LULUS-brightgreen)
+![Dependensi](https://img.shields.io/badge/Dependensi_Eksternal-nol-blue)
+
+</div>
 
 ---
 
-### **INFORMASI PRAKTIKUM & IDENTITAS MAHASISWA**
-* **Nama Lengkap** : **Muhammad Fakhri Abdullah**
-* **NIM** : **L0325030**
-* **Kelas** : **3 B**
-* **Mata Kuliah** : Praktikum Pemrograman Berorientasi Objek (OOP)
-* **Modul Tugas** : Praktik Lab Session 3B — Pengembangan Program Berbasis OOP
-* **Studi Kasus** : **RentaGo — Sistem Manajemen Rental Kendaraan**
-* **Bahasa Pemrograman** : Java (Standar JDK 11 / JDK 17 / JDK 25)
-* **Paket / Package** : Default Package
-* **Arsitektur Kode** : Modular OOP (1 Interface, 1 Abstract Superclass, 3 Subclasses, 1 Driver Class)
+## INFORMASI PRAKTIKUM & IDENTITAS MAHASISWA
+
+| Keterangan | Detail |
+|---|---|
+| **Nama Lengkap** | **Muhammad Fakhri Abdullah** |
+| **NIM** | **L0325030** |
+| **Kelas** | **3 B** |
+| **Mata Kuliah** | Praktikum Pemrograman Berorientasi Objek (OOP) |
+| **Modul Tugas** | Praktik Lab Session 3B — Pengembangan Program Berbasis OOP |
+| **Studi Kasus** | **RentaGo — Sistem Manajemen Rental Kendaraan** |
+| **Bahasa Pemrograman** | Java (Standar JDK 11 / JDK 17 / JDK 25) |
+| **Paket / Package** | Default Package |
+| **Arsitektur Kode** | Modular OOP (1 Interface, 1 Abstract Superclass, 3 Subclasses, 1 Driver Class) |
+
+### Proyek Sekilas
+
+| Aspek | Ringkasan |
+|---|---|
+| **Apa yang dibangun** | Aplikasi *command-line* untuk mengelola rental kendaraan (Mobil, Motor, dan Bus) |
+| **Lima konsep OOP** | Encapsulation, Inheritance, Polymorphism, Abstract Class, dan Interface |
+| **Armada awal** | 4 objek kendaraan: 2 Mobil, 1 Motor, dan 1 Bus |
+| **Mode operasi** | Demo otomatis (8 tahap) dan mode interaktif berbasis menu `Scanner` |
+| **Struktur kode** | 6 file: 1 interface, 1 abstract class, 3 subclass, dan 1 driver class |
+| **Pengujian** | 13 test case (TC-01 s.d. TC-13), seluruhnya **LULUS** |
+| **Dependensi** | Tidak ada pustaka eksternal (*zero external dependency*) |
+
+### Panduan Membaca Laporan
+
+Laporan ini disusun mengalir dari **konsep → perancangan → kode → bukti pengujian**. Jika Anda tidak ingin membacanya secara berurutan, gunakan petunjuk berikut:
+
+| Jika Anda ingin... | Langsung buka |
+|---|---|
+| Memahami gambaran umum dan studi kasus | [Bagian 1](#1-ringkasan-eksekutif--abstrak) dan [Bagian 2](#2-latar-belakang--deskripsi-studi-kasus) |
+| Mempelajari teori OOP yang dipakai | [Bagian 4](#4-landasan-teori-pemrograman-berorientasi-objek) |
+| Memastikan semua ketentuan soal terpenuhi | [Bagian 5](#5-analisis-pemenuhan-ketentuan-soal-lembar-tugas-pdf) |
+| Melihat desain sistem, diagram UML, dan rumus tarif | [Bagian 6](#6-perancangan-sistem--arsitektur-perangkat-lunak) |
+| Membaca kode sumber beserta penjelasannya | [Bagian 7](#7-implementasi-source-code--pembahasan-detail) |
+| Melihat hasil eksekusi dan 13 test case | [Bagian 8](#8-hasil-pengujian-output-eksekusi--analisis-hasil) |
+| Menjalankan program sendiri | [Bagian 9](#9-panduan-kompilasi-dan-eksekusi) |
+| Memahami istilah teknis | [Lampiran A](#lampiran-a-glosarium-istilah) |
 
 ---
 
 ## DAFTAR ISI
 1. [Ringkasan Eksekutif & Abstrak](#1-ringkasan-eksekutif--abstrak)
 2. [Latar Belakang & Deskripsi Studi Kasus](#2-latar-belakang--deskripsi-studi-kasus)
+   - 2.1 [Latar Belakang](#21-latar-belakang)
+   - 2.2 [Studi Kasus "RentaGo"](#22-studi-kasus-rentago)
 3. [Tujuan Praktikum & Metrik Keberhasilan](#3-tujuan-praktikum--metrik-keberhasilan)
+   - 3.1 [Tujuan Praktikum](#31-tujuan-praktikum)
+   - 3.2 [Metrik Ketercapaian](#32-metrik-ketercapaian)
 4. [Landasan Teori Pemrograman Berorientasi Objek](#4-landasan-teori-pemrograman-berorientasi-objek)
    - 4.1 [Paradigma Berorientasi Objek vs Prosedural](#41-paradigma-berorientasi-objek-vs-prosedural)
    - 4.2 [Class, Objek, Atribut, dan Method](#42-class-objek-atribut-dan-method)
@@ -28,6 +74,7 @@
    - 4.5 [Pilar 3: Polymorphism (Overriding, Overloading, Runtime Polymorphism)](#45-pilar-3-polymorphism-overriding-overloading-runtime-polymorphism)
    - 4.6 [Pilar 4: Abstract Class & Abstract Method](#46-pilar-4-abstract-class--abstract-method)
    - 4.7 [Pilar 5: Interface & Kontrak Perilaku](#47-pilar-5-interface--kontrak-perilaku)
+   - 4.8 [Peta Ringkas Konsep OOP pada RentaGo](#48-peta-ringkas-konsep-oop-pada-rentago)
 5. [Analisis Pemenuhan Ketentuan Soal (Lembar Tugas PDF)](#5-analisis-pemenuhan-ketentuan-soal-lembar-tugas-pdf)
    - 5.1 [Pemenuhan Ketentuan Wajib](#51-pemenuhan-ketentuan-wajib)
    - 5.2 [Pemenuhan Ketentuan Tambahan](#52-pemenuhan-ketentuan-tambahan)
@@ -35,6 +82,7 @@
    - 6.1 [Struktur Direktori Proyek](#61-struktur-direktori-proyek)
    - 6.2 [Class Diagram (UML)](#62-class-diagram-uml)
    - 6.3 [Aturan Bisnis & Formula Biaya Sewa Kendaraan](#63-aturan-bisnis--formula-biaya-sewa-kendaraan)
+   - 6.4 [Alur Eksekusi Program & Siklus Status Kendaraan](#64-alur-eksekusi-program--siklus-status-kendaraan)
 7. [Implementasi Source Code & Pembahasan Detail](#7-implementasi-source-code--pembahasan-detail)
    - 7.1 [`Rentable.java` (Interface)](#71-rentablejava-interface)
    - 7.2 [`Kendaraan.java` (Abstract Superclass)](#72-kendaraanjava-abstract-superclass)
@@ -47,13 +95,19 @@
    - 8.2 [Output Mode Interaktif (Sesi Uji Kasus Nyata)](#82-output-mode-interaktif-sesi-uji-kasus-nyata)
    - 8.3 [Verifikasi Mandiri 13 Test Case (TC-01 s.d. TC-13)](#83-verifikasi-mandiri-13-test-case-tc-01-sd-tc-13)
 9. [Panduan Kompilasi dan Eksekusi](#9-panduan-kompilasi-dan-eksekusi)
-10. [Kesimpulan](#10-kesimpulan)
+   - 9.1 [Melalui Command Prompt / PowerShell / Linux Terminal](#91-melalui-command-prompt--powershell--linux-terminal)
+   - 9.2 [Melalui Integrated Development Environment (IDE)](#92-melalui-integrated-development-environment-ide)
+   - 9.3 [Pemecahan Masalah Umum (Troubleshooting)](#93-pemecahan-masalah-umum-troubleshooting)
+10. [Kesimpulan dan Saran](#10-kesimpulan-dan-saran)
+    - 10.1 [Kesimpulan](#101-kesimpulan)
+    - 10.2 [Saran Pengembangan Lanjutan](#102-saran-pengembangan-lanjutan)
+- [Lampiran A: Glosarium Istilah](#lampiran-a-glosarium-istilah)
 
 ---
 
 ## 1. Ringkasan Eksekutif & Abstrak
 
-Tugas praktikum **Praktik Lab Session 3B** menitikberatkan pada perancangan dan implementasi aplikasi berbasis bahasa pemrograman Java dengan mengintegrasikan lima konsep fundamental *Object-Oriented Programming* (OOP): **Encapsulation**, **Inheritance**, **Polymorphism**, **Abstract Class**, dan **Interface**.
+Tugas praktikum **Praktik Lab Session 3B** menitikberatkan pada perancangan dan implementasi aplikasi berbasis bahasa pemrograman Java dengan mengintegrasikan lima konsep fundamental *Object-Oriented Programming* (OOP): **Encapsulation**, **Inheritance**, **Polymorphism**, **Abstract Class**, dan **Interface**. Kelima konsep tersebut tidak dibahas secara terpisah, melainkan dipadukan dalam satu studi kasus utuh sehingga keterkaitan antarkonsep dapat terlihat langsung pada kode.
 
 Aplikasi yang dibangun berjudul **RentaGo — Sistem Manajemen Rental Kendaraan**. Sistem ini mensimulasikan operasional bisnis rental kendaraan yang mengelola berbagai varian armada: Mobil, Motor, dan Bus. Setiap jenis kendaraan memiliki spesifikasi teknis dan formula perhitungan tarif rental yang unik (memperhitungkan asuransi, biaya sewa helm, dan upah sopir harian). Program dirancang dengan dua mode operasi:
 1. **Mode Demo Otomatis**: Menjalankan 8 tahap simulasi terstruktur untuk memverifikasi secara langsung seluruh konsep OOP dan aturan bisnis.
@@ -66,21 +120,50 @@ Seluruh ketentuan wajib dan ketentuan tambahan dari dokumen penugasan berhasil d
 ## 2. Latar Belakang & Deskripsi Studi Kasus
 
 ### 2.1 Latar Belakang
+
 Dalam paradigma prosedural tradisional, pengelolaan data armada dan perhitungan tarif sewa sering kali disatukan dalam percabangan logika kondisional (`if-else` atau `switch-case`) yang panjang dan rentan kesalahan. Ketika terdapat penambahan armada baru, pengembang terpaksa membongkar kode lama, melanggar prinsip *Open/Closed Principle* (OCP).
+
+Ilustrasi pendekatan prosedural tersebut (hanya sebagai perbandingan, bukan bagian dari program RentaGo):
+
+```java
+// Pendekatan prosedural: setiap jenis kendaraan baru menuntut penambahan cabang if-else
+double hitungBiaya(String jenis, double harga, int hari) {
+    if (jenis.equals("Mobil"))      { return harga * hari + 50000; }
+    else if (jenis.equals("Motor")) { return harga * hari + 10000 * hari; }
+    else if (jenis.equals("Bus"))   { return harga * hari + 300000 * hari; }
+    return 0; // jenis baru? fungsi ini harus dibongkar lagi
+}
+```
 
 Dengan mengadopsi paradigma Berorientasi Objek (OOP), sistem dirancang modular:
 * Setiap kendaraan dimodelkan sebagai objek otonom yang membungkus status dan perilakunya sendiri.
 * Hubungan *is-a* (Mobil adalah Kendaraan, Motor adalah Kendaraan, Bus adalah Kendaraan) dimodelkan secara alamiah melalui pewarisan (*inheritance*).
 * Kemampuan transaksi persewaan dimodelkan sebagai kontrak perilaku melalui *interface*.
 
-### 2.2 Studi Kasus "RentaGo"
-RentaGo mengelola empat unit armada awal:
-1. `MBL-001` — **Toyota Avanza** (Mobil, 5 Pintu, Tarif Dasar Rp350.000/hari)
-2. `MBL-002` — **Honda Brio** (Mobil, 5 Pintu, Tarif Dasar Rp300.000/hari)
-3. `MTR-001` — **Yamaha NMAX** (Motor, 155 cc, Tarif Dasar Rp120.000/hari)
-4. `BUS-001` — **Hino Medium Bus** (Bus, 30 Penumpang, Tarif Dasar Rp1.500.000/hari)
+Hasilnya, pemanggilan biaya sewa cukup ditulis satu kali untuk seluruh jenis kendaraan, dan penambahan jenis baru cukup dilakukan dengan membuat subclass baru tanpa menyentuh kode yang sudah ada:
 
-Setiap entitas harus mampu menghitung biaya sewa dengan formula spesifik, menerima diskon persentase, divalidasi status ketersediaannya sebelum transaksi, dan dilindungi dari manipulasi nilai data yang tidak sah (seperti nilai harga negatif).
+```java
+for (Kendaraan k : daftar) {
+    k.hitungBiayaSewa(3); // formula yang dipakai mengikuti jenis objek sebenarnya
+}
+```
+
+### 2.2 Studi Kasus "RentaGo"
+
+RentaGo mengelola empat unit armada awal:
+
+| No | ID | Merek | Jenis | Spesifikasi | Tarif Dasar |
+|:---:|---|---|---|---|---|
+| 1 | `MBL-001` | **Toyota Avanza** | Mobil | 5 Pintu | Rp350.000/hari |
+| 2 | `MBL-002` | **Honda Brio** | Mobil | 5 Pintu | Rp300.000/hari |
+| 3 | `MTR-001` | **Yamaha NMAX** | Motor | 155 cc | Rp120.000/hari |
+| 4 | `BUS-001` | **Hino Medium Bus** | Bus | 30 Penumpang | Rp1.500.000/hari |
+
+Setiap entitas harus memenuhi empat tuntutan berikut:
+1. **Menghitung biaya sewa** dengan formula spesifik sesuai jenis kendaraannya.
+2. **Menerima diskon persentase** pada perhitungan biaya.
+3. **Divalidasi status ketersediaannya** sebelum transaksi sewa diproses.
+4. **Dilindungi dari manipulasi nilai data yang tidak sah** (seperti nilai harga negatif).
 
 ---
 
@@ -94,43 +177,108 @@ Setiap entitas harus mampu menghitung biaya sewa dengan formula spesifik, meneri
 5. Mampu menerapkan **Abstract Class** untuk membuat kerangka dasar superclass yang tidak dapat diinstansiasi secara prematur.
 6. Mampu menerapkan **Interface** sebagai kontrak perilaku persewaan (`Rentable`) yang diimplementasikan secara konsisten.
 
+Agar setiap tujuan dapat ditelusuri, berikut pemetaannya ke bagian teori, kode, dan bukti pengujian:
+
+| Tujuan | Landasan Teori | Wujud di Kode | Bukti Pengujian |
+|:---:|---|---|---|
+| 1 | [Bagian 4.1 – 4.2](#41-paradigma-berorientasi-objek-vs-prosedural) | [Bagian 6.2](#62-class-diagram-uml) dan [Bagian 7](#7-implementasi-source-code--pembahasan-detail) | Seluruh test case |
+| 2 | [Bagian 4.3](#43-pilar-1-encapsulation-enkapsulasi--data-hiding) | [Bagian 7.2](#72-kendaraanjava-abstract-superclass) | TC-06 s.d. TC-10 |
+| 3 | [Bagian 4.4](#44-pilar-2-inheritance-pewarisan--constructor-chaining) | [Bagian 7.3 – 7.5](#73-mobiljava-subclass-konkret) | TC-13 |
+| 4 | [Bagian 4.5](#45-pilar-3-polymorphism-overriding-overloading-runtime-polymorphism) | [Bagian 7.2](#72-kendaraanjava-abstract-superclass) dan [7.6](#76-mainjava-driver-class-demo-otomatis--menu-cli-interaktif) | TC-04, TC-05, TC-11 |
+| 5 | [Bagian 4.6](#46-pilar-4-abstract-class--abstract-method) | [Bagian 7.2](#72-kendaraanjava-abstract-superclass) | TC-01 s.d. TC-03 |
+| 6 | [Bagian 4.7](#47-pilar-5-interface--kontrak-perilaku) | [Bagian 7.1](#71-rentablejava-interface) | TC-12 |
+
 ### 3.2 Metrik Ketercapaian
-* Seluruh 5 ketentuan wajib terpenuhi tanpa pengecualian.
-* Seluruh 4 ketentuan tambahan terpenuhi (memiliki 6 file/class/interface dan 4 objek konkret).
-* Kompilasi dan eksekusi berjalan 100% mulus tanpa error dan tanpa warning pada JDK standar.
-* Seluruh 13 Test Case (TC-01 hingga TC-13) terverifikasi **LULUS** (*PASS*).
+- [x] Seluruh 5 ketentuan wajib terpenuhi tanpa pengecualian.
+- [x] Seluruh 4 ketentuan tambahan terpenuhi (memiliki 6 file/class/interface dan 4 objek konkret).
+- [x] Kompilasi dan eksekusi berjalan 100% mulus tanpa error dan tanpa warning pada JDK standar.
+- [x] Seluruh 13 Test Case (TC-01 hingga TC-13) terverifikasi **LULUS** (*PASS*).
 
 ---
 
 ## 4. Landasan Teori Pemrograman Berorientasi Objek
 
-Berikut adalah kajian teori komprehensif terkait konsep-konsep materi kuliah Pemrograman Berorientasi Objek yang diintegrasikan dalam aplikasi:
+Berikut adalah kajian teori komprehensif terkait konsep-konsep materi kuliah Pemrograman Berorientasi Objek yang diintegrasikan dalam aplikasi. Pembahasan dimulai dari fondasi (paradigma, class, objek), kemudian dilanjutkan ke lima pilar OOP. Setiap pilar disertai contoh nyata pada kode RentaGo agar teori dapat langsung dihubungkan dengan implementasinya.
 
 ### 4.1 Paradigma Berorientasi Objek vs Prosedural
+
 * **Pemrograman Prosedural**: Program dipandang sebagai urutan langkah instruksi linier (*functions/procedures*) yang beroperasi pada struktur data terpisah. Kelemahannya adalah data bersifat global/terbuka sehingga mudah termodifikasi secara tidak sengaja.
 * **Pemrograman Berorientasi Objek (OOP)**: Program dipandang sebagai kumpulan entitas mandiri (*objects*) yang saling berinteraksi. Data (state/atribut) dan operasi (behavior/method) dibungkus secara kohesif dalam satu kesatuan unit class.
 
+| Aspek | Prosedural | Berorientasi Objek |
+|---|---|---|
+| **Unit utama program** | Fungsi / prosedur | Class dan objek |
+| **Hubungan data & logika** | Terpisah | Menyatu dalam satu class |
+| **Keamanan data** | Data cenderung terbuka | Data dapat disembunyikan (*data hiding*) |
+| **Penambahan fitur baru** | Sering mengubah kode lama | Cukup menambah class/subclass baru |
+| **Penggunaan ulang kode** | Terbatas | Tinggi melalui pewarisan dan interface |
+
 ### 4.2 Class, Objek, Atribut, dan Method
-* **Class**: Cetak biru (*blueprint*) atau definisi tipe data bentukan yang mendeskripsikan atribut dan perilaku umum dari suatu entitas. Pada proyek ini, class didefinisikan pada [`Kendaraan`](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Kendaraan.java), [`Mobil`](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Mobil.java), [`Motor`](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Motor.java), [`Bus`](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Bus.java), dan [`Main`](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Main.java).
+
+* **Class**: Cetak biru (*blueprint*) atau definisi tipe data bentukan yang mendeskripsikan atribut dan perilaku umum dari suatu entitas. Pada proyek ini, class didefinisikan pada [`Kendaraan`](src/Kendaraan.java), [`Mobil`](src/Mobil.java), [`Motor`](src/Motor.java), [`Bus`](src/Bus.java), dan [`Main`](src/Main.java).
 * **Objek (*Object / Instance*)**: Wujud nyata (*instantiation*) dari class yang dialokasikan di dalam memori Heap. Misalnya: `mobil1`, `mobil2`, `motor1`, `bus1`.
 * **Atribut (*Field / State*)**: Data atau variabel yang dimiliki objek untuk merepresentasikan karakteristiknya (`idKendaraan`, `merek`, `hargaPerHari`, `tersedia`, `namaPenyewa`, `lamaSewa`).
 * **Method (*Behavior*)**: Fungsi atau aksi operasional yang dapat dieksekusi oleh atau terhadap objek (`sewa()`, `kembalikan()`, `hitungBiayaSewa()`, `tampilkanInfo()`).
 
+Analogi sederhananya: `Mobil` adalah *cetakan*, sedangkan Toyota Avanza `MBL-001` adalah *hasil cetakan* yang punya merek, harga, dan status sewanya sendiri.
+
 ---
 
 ### 4.3 Pilar 1: Encapsulation (Enkapsulasi & Data Hiding)
+
 **Enkapsulasi** adalah teknik menyembunyikan detail implementasi internal dan melindungi keadaan (*state*) suatu objek dari manipulasi liar dari luar class (*Data Hiding*).
 
 #### Prinsip Implementasi:
 1. **Access Modifier Private**: Semua variabel atribut dideklarasikan menggunakan kata kunci `private`. Variabel ini tidak dapat diakses atau diubah langsung oleh class lain maupun subclass.
 2. **Accessor (Getter)**: Menyediakan method publik (`public`) bertipe kembalian untuk membaca nilai atribut secara aman tanpa memberikan hak tulis langsung (contoh: `getIdKendaraan()`, `getMerek()`, `getHargaPerHari()`).
-3. **Mutator (Setter) Ter-validasi**: Menyediakan method publik untuk mengubah data dengan menyematkan logika validasi integritas (*invarian rule*). Pada [`Kendaraan.java`](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Kendaraan.java#L53-L59), method `setHargaPerHari(double)` memvalidasi bahwa nilai tidak boleh $\le 0$. Jika tidak valid, perubahan ditolak dan nilai lama tetap dipertahankan.
+3. **Mutator (Setter) Ter-validasi**: Menyediakan method publik untuk mengubah data dengan menyematkan logika validasi integritas (*invarian rule*). Pada [`Kendaraan.java`](src/Kendaraan.java#L53-L59), method `setHargaPerHari(double)` memvalidasi bahwa nilai tidak boleh $\le 0$. Jika tidak valid, perubahan ditolak dan nilai lama tetap dipertahankan.
 4. **State Guarding**: Atribut penting seperti `tersedia`, `namaPenyewa`, dan `lamaSewa` **tidak memiliki setter publik**. Perubahan status hanya diizinkan melalui transaksi bisnis resmi, yaitu method `sewa()` dan `kembalikan()`.
+
+Contoh setter ter-validasi pada RentaGo:
+
+```java
+public void setHargaPerHari(double hargaPerHari) {
+    if (hargaPerHari <= 0) {
+        System.out.println("Gagal   : Harga harus lebih dari 0. Perubahan ditolak.");
+    } else {
+        this.hargaPerHari = hargaPerHari;
+    }
+}
+```
+
+Matriks akses atribut pada RentaGo membantu melihat siapa yang boleh membaca dan mengubah setiap data:
+
+| Atribut | Class | Getter | Setter | Cara Nilai Berubah |
+|---|---|:---:|:---:|---|
+| `idKendaraan` | `Kendaraan` | Ada | Tidak ada | Hanya diisi sekali lewat constructor |
+| `merek` | `Kendaraan` | Ada | Ada (menolak kosong/`null`) | Setter ter-validasi |
+| `hargaPerHari` | `Kendaraan` | Ada | Ada (menolak $\le 0$) | Setter ter-validasi |
+| `tersedia` | `Kendaraan` | Ada (`isTersedia()`) | Tidak ada | Hanya lewat `sewa()` dan `kembalikan()` |
+| `namaPenyewa` | `Kendaraan` | Ada | Tidak ada | Hanya lewat `sewa()` dan `kembalikan()` |
+| `lamaSewa` | `Kendaraan` | Ada | Tidak ada | Hanya lewat `sewa()` dan `kembalikan()` |
+| `jumlahPintu` | `Mobil` | Ada | Ada (menolak $\le 0$) | Setter ter-validasi |
+| `kapasitasCC` | `Motor` | Ada | Ada (menolak $\le 0$) | Setter ter-validasi |
+| `kapasitasPenumpang` | `Bus` | Ada | Ada (menolak $\le 0$) | Setter ter-validasi |
+
+Dengan rancangan ini, objek tidak mungkin berada dalam kondisi tidak valid, misalnya harga negatif atau kendaraan yang berstatus "tersedia" tetapi masih memiliki nama penyewa.
 
 ---
 
 ### 4.4 Pilar 2: Inheritance (Pewarisan & Constructor Chaining)
+
 **Inheritance** adalah mekanisme pembentukan hierarki antar class di mana sebuah class turunan (*subclass*) mewarisi atribut dan method dari class induknya (*superclass*). Konsep ini mengeliminasi duplikasi kode (*reusability*) dan mencerminkan hubungan taksonomi alamiah (*is-a relationship*).
+
+Hierarki pewarisan pada RentaGo:
+
+```text
+Rentable            (interface)        ← kontrak "dapat disewa"
+   ▲  implements
+Kendaraan           (abstract class)   ← atribut & perilaku umum semua kendaraan
+   ▲  extends
+   ├── Mobil        (+ jumlahPintu, asuransi tetap)
+   ├── Motor        (+ kapasitasCC, sewa helm harian)
+   └── Bus          (+ kapasitasPenumpang, upah sopir harian)
+```
 
 #### Prinsip Implementasi:
 1. **Keyword `extends`**: Digunakan untuk mendeklarasikan hubungan pewarisan:
@@ -143,13 +291,28 @@ Berikut adalah kajian teori komprehensif terkait konsep-konsep materi kuliah Pem
    * `Motor` menambahkan `kapasitasCC`
    * `Bus` menambahkan `kapasitasPenumpang`
 
+Contoh *constructor chaining* pada class `Mobil`:
+
+```java
+public Mobil(String idKendaraan, String merek, double hargaPerHari, int jumlahPintu) {
+    super(idKendaraan, merek, hargaPerHari); // 1) bangun bagian Kendaraan terlebih dahulu
+    setJumlahPintu(jumlahPintu);             // 2) lengkapi atribut khusus Mobil
+}
+```
+
+Urutan kejadian saat `new Mobil("MBL-001", "Toyota Avanza", 350000, 5)` dieksekusi:
+1. Constructor `Mobil` dipanggil, lalu langsung meneruskan `id`, `merek`, dan `harga` ke constructor `Kendaraan` melalui `super(...)`.
+2. Constructor `Kendaraan` mengisi atribut dasar (termasuk nilai awal `tersedia = true`) dan memvalidasi `merek` serta `hargaPerHari` lewat setter.
+3. Kendali kembali ke constructor `Mobil` yang kemudian mengisi `jumlahPintu` lewat setter ter-validasi.
+
 ---
 
-### 4.5 Pilar 3: Polymorphism (Polimorfisme)
-Berasal dari bahasa Yunani yang berarti "banyak bentuk". Dalam OOP, polimorfisme memungkinkan satu nama method atau antarmuka memiliki banyak bentuk perilaku nyata tergantung konteks eksekusinya.
+### 4.5 Pilar 3: Polymorphism (Overriding, Overloading, Runtime Polymorphism)
+
+Berasal dari bahasa Yunani yang berarti "banyak bentuk". Dalam OOP, polimorfisme memungkinkan satu nama method atau antarmuka memiliki banyak bentuk perilaku nyata tergantung konteks eksekusinya. Pada RentaGo, polimorfisme hadir dalam tiga bentuk yang saling melengkapi.
 
 #### a. Method Overriding (Dynamic / Runtime Polymorphism)
-* Terjadi saat subclass menuliskan ulang badan method yang sudah ada di superclass dengan tanda tangan (*signature*: nama method, jumlah parameter, tipe data parameter, dan return type) yang sama persis.
+* Terjadi saat subclass menuliskan ulang badan method yang sudah ada di superclass dengan tanda tangan (*signature*: nama method serta jumlah dan tipe data parameter) yang sama persis, dengan return type yang sama atau kompatibel.
 * Ditandai secara eksplisit dengan anotasi `@Override` agar *compiler* dapat memverifikasi kesesuaian tanda tangan method.
 * **Dynamic Method Dispatch**: Pemanggilan method ditentukan oleh tipe objek nyata saat *runtime*, bukan tipe referensinya.
 * Contoh di RentaGo: Setiap subclass (`Mobil`, `Motor`, `Bus`) meng-*override* method `hitungBiayaSewa(int hari)` dan `tampilkanInfo()`.
@@ -171,9 +334,23 @@ Berasal dari bahasa Yunani yang berarti "banyak bentuk". Dalam OOP, polimorfisme
   ```
 * Saat dilakukan iterasi loop `for (Kendaraan k : daftar)`, pemanggilan `k.hitungBiayaSewa(3)` secara otomatis memanggil implementasi milik subclass yang bersangkutan di dalam memori runtime.
 
+#### Perbandingan Overriding vs Overloading
+
+| Aspek | Overriding | Overloading |
+|---|---|---|
+| **Lokasi** | Subclass menulis ulang method milik superclass/interface | Beberapa method sewarga dalam class yang sama |
+| **Signature** | Sama persis | Daftar parameter berbeda |
+| **Waktu penentuan** | *Runtime* (*dynamic dispatch*) | *Compile-time* |
+| **Jenis polimorfisme** | Dinamis | Statis |
+| **Contoh di RentaGo** | `hitungBiayaSewa(int)` pada `Mobil`, `Motor`, dan `Bus` | `hitungBiayaSewa(int)` vs `hitungBiayaSewa(int, double)` |
+
+> [!NOTE]
+> Method `sewa(String, int)` pada `Kendaraan` menjalankan dua peran sekaligus: ia **meng-override** method kontrak dari interface `Rentable`, sementara `sewa(String)` adalah **overload**-nya dengan durasi bawaan 1 hari.
+
 ---
 
 ### 4.6 Pilar 4: Abstract Class & Abstract Method
+
 **Abstract Class** adalah class yang bersifat konseptual dan tidak lengkap, sehingga **tidak dapat diinstansiasi secara langsung** menggunakan operator `new`. Abstract class berfungsi sebagai cetak biru dasar bagi keluarga class turunannya.
 
 #### Karakteristik Implementasi:
@@ -185,9 +362,20 @@ Berasal dari bahasa Yunani yang berarti "banyak bentuk". Dalam OOP, polimorfisme
   ```
 * **Kewajiban Subclass**: Setiap subclass konkret yang mewarisi `Kendaraan` **wajib** mengimplementasikan seluruh abstract method tersebut, atau subclass tersebut juga harus dideklarasikan sebagai abstract class.
 
+#### Mengapa `Kendaraan` dibuat abstract?
+"Kendaraan" hanyalah konsep umum; di dunia nyata yang disewa selalu berupa mobil, motor, atau bus. Karena itu `new Kendaraan(...)` sengaja tidak diizinkan dan akan ditolak *compiler*. Di sisi lain, abstract class ini tetap menyimpan **kode bersama** yang dipakai semua turunan, sehingga tidak ditulis berulang:
+
+| Dalam `Kendaraan` | Isi | Siapa yang mengisi badan method |
+|---|---|---|
+| **Abstract method** | `hitungBiayaSewa(int)` dan `getJenis()` | Masing-masing subclass (`Mobil`, `Motor`, `Bus`) |
+| **Method konkret** | Getter/setter, `sewa()`, `kembalikan()`, `isTersedia()`, `tampilkanInfo()`, `hitungBiayaSewa(int, double)`, `formatRupiah()` | `Kendaraan` sendiri, diwariskan ke semua subclass |
+
+Perhatikan bahwa `hitungBiayaSewa(int, double)` yang bersifat konkret memanggil `hitungBiayaSewa(int)` yang bersifat abstract. Berkat polimorfisme, logika diskon cukup ditulis **satu kali** di superclass, tetapi tetap memakai formula dasar milik masing-masing subclass.
+
 ---
 
 ### 4.7 Pilar 5: Interface & Kontrak Perilaku
+
 **Interface** adalah struktur acuan murni yang mendefinisikan *kontrak perilaku* yang harus dipatuhi oleh class yang mengimplementasikannya. Interface hanya berisi deklarasi method publik abstrak (pada standar klasik) tanpa menyimpan status objek (tidak memiliki instance variables).
 
 #### Karakteristik Implementasi:
@@ -204,21 +392,51 @@ Berasal dari bahasa Yunani yang berarti "banyak bentuk". Dalam OOP, polimorfisme
   boolean status = r.isTersedia();
   ```
 
+> [!NOTE]
+> Sejak Java 8, interface juga dapat memuat *default method* dan *static method*. Pada proyek ini `Rentable` sengaja dibuat sebagai interface klasik yang hanya berisi deklarasi method, sehingga fokus tetap pada konsep kontrak perilaku.
+
+#### Abstract Class vs Interface pada RentaGo
+
+| Aspek | `Kendaraan` (abstract class) | `Rentable` (interface) |
+|---|---|---|
+| **Jenis hubungan** | *is-a* (Mobil adalah Kendaraan) | *can-do* (dapat disewa) |
+| **Menyimpan state** | Ya (atribut `private`) | Tidak |
+| **Berisi method konkret** | Ya | Tidak (hanya deklarasi) |
+| **Cara dipakai** | `extends` (satu superclass) | `implements` (dapat banyak interface) |
+| **Peran utama** | Kerangka dan kode bersama keluarga kendaraan | Kontrak perilaku persewaan |
+
+---
+
+### 4.8 Peta Ringkas Konsep OOP pada RentaGo
+
+Ringkasan berikut menyatukan seluruh teori di atas agar dapat dijadikan acuan cepat sebelum membaca kode:
+
+| Pilar | Kata Kunci Java | Wujud di RentaGo | Berkas Utama |
+|---|---|---|---|
+| **Encapsulation** | `private`, getter, setter ter-validasi | Atribut privat, validasi harga/merek/kapasitas, status hanya berubah lewat `sewa()` dan `kembalikan()` | [`Kendaraan.java`](src/Kendaraan.java) |
+| **Inheritance** | `extends`, `super()` | `Mobil`, `Motor`, `Bus` mewarisi `Kendaraan` | [`Mobil.java`](src/Mobil.java), [`Motor.java`](src/Motor.java), [`Bus.java`](src/Bus.java) |
+| **Polymorphism** | `@Override`, overloading, referensi superclass | `hitungBiayaSewa()` beda formula per subclass; `ArrayList<Kendaraan>` diproses seragam | [`Kendaraan.java`](src/Kendaraan.java), [`Main.java`](src/Main.java) |
+| **Abstract Class** | `abstract` | `Kendaraan` dengan `hitungBiayaSewa(int)` dan `getJenis()` abstrak | [`Kendaraan.java`](src/Kendaraan.java) |
+| **Interface** | `interface`, `implements` | `Rentable` diimplementasikan oleh `Kendaraan` | [`Rentable.java`](src/Rentable.java) |
+
 ---
 
 ## 5. Analisis Pemenuhan Ketentuan Soal (Lembar Tugas PDF)
 
-Berdasarkan lembar instruksi resmi **Praktik Lab Session 3B**, berikut adalah matriks keterlacakan (*traceability matrix*) yang membuktikan bahwa seluruh ketentuan telah dipenuhi secara lengkap:
+Setelah teori dipahami, bagian ini memeriksa apakah seluruh persyaratan pada lembar penugasan sudah dipenuhi. Berdasarkan lembar instruksi resmi **Praktik Lab Session 3B**, berikut adalah matriks keterlacakan (*traceability matrix*) yang membuktikan bahwa seluruh ketentuan telah dipenuhi secara lengkap:
+
+> [!NOTE]
+> Kolom **Bukti Lokasi Kode** berisi tautan menuju file sumber di folder [`src/`](src/) beserta rentang baris (misalnya `#L8-L59`). Nomor baris merujuk pada file `.java` asli; posisinya dapat bergeser beberapa baris apabila komentar pada file diubah.
 
 ### 5.1 Pemenuhan Ketentuan Wajib
 
 | No | Ketentuan Wajib Soal | Rincian Persyaratan | Implementasi Nyata pada Kode RentaGo | Bukti Lokasi Kode |
 |:---:|---|---|---|---|
-| **1** | **Encapsulation** | • Gunakan access modifier `private` pada atribut.<br>• Implementasikan getter dan setter.<br>• Pastikan perubahan data dilakukan melalui method yang sesuai. | • Semua atribut pada `Kendaraan`, `Mobil`, `Motor`, dan `Bus` dideklarasikan `private`.<br>• Getter tersedia untuk semua atribut.<br>• Setter tersedia untuk `merek` dan `hargaPerHari` dengan validasi nilai.<br>• Status `tersedia`, `namaPenyewa`, dan `lamaSewa` hanya berubah lewat `sewa()` dan `kembalikan()`. | [`Kendaraan.java` Baris 8-59](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Kendaraan.java#L8-L59) |
-| **2** | **Inheritance** | • Buat minimal satu superclass dan dua subclass.<br>• Gunakan keyword `extends`.<br>• Implementasikan constructor dan pemanggilan `super()`. | • Superclass: `Kendaraan`.<br>• Subclass: `Mobil`, `Motor`, `Bus` (3 subclass, melampaui batas minimal 2).<br>• Semua subclass memakai `extends Kendaraan`.<br>• Constructor tiap subclass memanggil `super(id, merek, harga)` di baris pertama. | [`Mobil.java` Baris 2 & 11](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Mobil.java#L2-L14)<br>[`Motor.java` Baris 2 & 11](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Motor.java#L2-L14)<br>[`Bus.java` Baris 2 & 11](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Bus.java#L2-L14) |
-| **3** | **Polymorphism** | • Implementasikan method overriding menggunakan anotasi `@Override`.<br>• Implementasikan method overloading dengan nama sama beda parameter.<br>• Tunjukkan penerapan runtime polymorphism melalui objek dari class turunan yang disimpan dalam referensi superclass. | • **Overriding**: `@Override` pada `hitungBiayaSewa()`, `getJenis()`, `tampilkanInfo()`, serta method interface `sewa()`, `kembalikan()`, `isTersedia()`.<br>• **Overloading**: `hitungBiayaSewa(int)` vs `hitungBiayaSewa(int, double)` dan `sewa(String, int)` vs `sewa(String)`.<br>• **Runtime Polymorphism**: Objek `Mobil`, `Motor`, `Bus` dimasukkan ke `ArrayList<Kendaraan>` dan diproses seragam dalam loop. | [`Kendaraan.java` Baris 66-98](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Kendaraan.java#L66-L98)<br>[`Main.java` Baris 45-70](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Main.java#L45-L70) |
-| **4** | **Abstract Class** | • Buat minimal satu abstract class.<br>• Implementasikan minimal satu abstract method.<br>• Buat subclass yang mengimplementasikan abstract method tersebut. | • `public abstract class Kendaraan`.<br>• Dua abstract method: `abstract double hitungBiayaSewa(int hari)` dan `abstract String getJenis()`.<br>• Seluruh subclass (`Mobil`, `Motor`, `Bus`) mengimplementasikan kedua method abstrak tersebut. | [`Kendaraan.java` Baris 6 & 62-63](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Kendaraan.java#L6-L63)<br>Subclass `Mobil`, `Motor`, `Bus` |
-| **5** | **Interface** | • Buat minimal satu interface.<br>• Implementasikan interface menggunakan keyword `implements`.<br>• Setiap class yang mengimplementasikan interface harus memenuhi kontrak method. | • `public interface Rentable` berisi deklarasi method `sewa`, `kembalikan`, dan `isTersedia`.<br>• `Kendaraan implements Rentable`.<br>• Seluruh kontrak method diimplementasikan secara konkret dengan anotasi `@Override` di `Kendaraan`. | [`Rentable.java` Baris 2-6](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Rentable.java#L2-L6)<br>[`Kendaraan.java` Baris 6 & 74-118](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Kendaraan.java#L6-L118) |
+| **1** | **Encapsulation** | • Gunakan access modifier `private` pada atribut.<br>• Implementasikan getter dan setter.<br>• Pastikan perubahan data dilakukan melalui method yang sesuai. | • Semua atribut pada `Kendaraan`, `Mobil`, `Motor`, dan `Bus` dideklarasikan `private`.<br>• Getter tersedia untuk semua atribut.<br>• Setter tersedia untuk `merek` dan `hargaPerHari` dengan validasi nilai.<br>• Status `tersedia`, `namaPenyewa`, dan `lamaSewa` hanya berubah lewat `sewa()` dan `kembalikan()`. | [`Kendaraan.java` Baris 8-59](src/Kendaraan.java#L8-L59) |
+| **2** | **Inheritance** | • Buat minimal satu superclass dan dua subclass.<br>• Gunakan keyword `extends`.<br>• Implementasikan constructor dan pemanggilan `super()`. | • Superclass: `Kendaraan`.<br>• Subclass: `Mobil`, `Motor`, `Bus` (3 subclass, melampaui batas minimal 2).<br>• Semua subclass memakai `extends Kendaraan`.<br>• Constructor tiap subclass memanggil `super(id, merek, harga)` di baris pertama. | [`Mobil.java` Baris 2 & 11](src/Mobil.java#L2-L14)<br>[`Motor.java` Baris 2 & 11](src/Motor.java#L2-L14)<br>[`Bus.java` Baris 2 & 11](src/Bus.java#L2-L14) |
+| **3** | **Polymorphism** | • Implementasikan method overriding menggunakan anotasi `@Override`.<br>• Implementasikan method overloading dengan nama sama beda parameter.<br>• Tunjukkan penerapan runtime polymorphism melalui objek dari class turunan yang disimpan dalam referensi superclass. | • **Overriding**: `@Override` pada `hitungBiayaSewa()`, `getJenis()`, `tampilkanInfo()`, serta method interface `sewa()`, `kembalikan()`, `isTersedia()`.<br>• **Overloading**: `hitungBiayaSewa(int)` vs `hitungBiayaSewa(int, double)` dan `sewa(String, int)` vs `sewa(String)`.<br>• **Runtime Polymorphism**: Objek `Mobil`, `Motor`, `Bus` dimasukkan ke `ArrayList<Kendaraan>` dan diproses seragam dalam loop. | [`Kendaraan.java` Baris 66-98](src/Kendaraan.java#L66-L98)<br>[`Main.java` Baris 45-70](src/Main.java#L45-L70) |
+| **4** | **Abstract Class** | • Buat minimal satu abstract class.<br>• Implementasikan minimal satu abstract method.<br>• Buat subclass yang mengimplementasikan abstract method tersebut. | • `public abstract class Kendaraan`.<br>• Dua abstract method: `abstract double hitungBiayaSewa(int hari)` dan `abstract String getJenis()`.<br>• Seluruh subclass (`Mobil`, `Motor`, `Bus`) mengimplementasikan kedua method abstrak tersebut. | [`Kendaraan.java` Baris 6 & 62-63](src/Kendaraan.java#L6-L63)<br>Subclass `Mobil`, `Motor`, `Bus` |
+| **5** | **Interface** | • Buat minimal satu interface.<br>• Implementasikan interface menggunakan keyword `implements`.<br>• Setiap class yang mengimplementasikan interface harus memenuhi kontrak method. | • `public interface Rentable` berisi deklarasi method `sewa`, `kembalikan`, dan `isTersedia`.<br>• `Kendaraan implements Rentable`.<br>• Seluruh kontrak method diimplementasikan secara konkret dengan anotasi `@Override` di `Kendaraan`. | [`Rentable.java` Baris 2-6](src/Rentable.java#L2-L6)<br>[`Kendaraan.java` Baris 6 & 74-118](src/Kendaraan.java#L6-L118) |
 
 ---
 
@@ -231,9 +449,13 @@ Berdasarkan lembar instruksi resmi **Praktik Lab Session 3B**, berikut adalah ma
 | **3** | Program Dapat Dijalankan & Output Sesuai | Eksekusi lancar | Program berjalan tanpa exception, output tahap [1] s.d. [8] presisi dan rapi | **TERPENUHI** |
 | **4** | Hubungan Logis Superclass–Subclass–Interface | Logis & Natural | Taksonomi kendaraan nyata: `Kendaraan` (is-a) $\rightarrow$ `Mobil/Motor/Bus`; `Rentable` (can-do) $\rightarrow$ Kemampuan disewa | **TERPENUHI** |
 
+Seluruh ketentuan wajib maupun tambahan berstatus **terpenuhi**; pembuktian lebih lanjut berupa output eksekusi dan test case disajikan pada [Bagian 8](#8-hasil-pengujian-output-eksekusi--analisis-hasil).
+
 ---
 
 ## 6. Perancangan Sistem & Arsitektur Perangkat Lunak
+
+Bagian ini menjembatani teori dan kode: bagaimana class disusun dalam proyek, bagaimana hubungan antarclass digambarkan, dan aturan bisnis apa yang menjadi dasar perhitungan biaya.
 
 ### 6.1 Struktur Direktori Proyek
 
@@ -258,6 +480,8 @@ LabSession3B/
     ├── Motor.java          (Subclass Motor, mewarisi Kendaraan)
     └── Rentable.java       (Interface Kontrak Persewaan)
 ```
+
+Folder `out/` tidak perlu ditulis manual karena dibuat otomatis saat proses kompilasi (lihat [Bagian 9](#9-panduan-kompilasi-dan-eksekusi)).
 
 ---
 
@@ -344,6 +568,11 @@ classDiagram
         +bacaString(Scanner sc, String pesan)$ String
         +cariKendaraan(ArrayList~Kendaraan~ daftar, String id)$ Kendaraan
         +formatRupiah(double nilai)$ String
+        -menuLihatDaftar(ArrayList~Kendaraan~ daftar)$ void
+        -menuHitungBiaya(ArrayList~Kendaraan~ daftar, Scanner sc)$ void
+        -menuSewaKendaraan(ArrayList~Kendaraan~ daftar, Scanner sc)$ void
+        -menuKembalikanKendaraan(ArrayList~Kendaraan~ daftar, Scanner sc)$ void
+        -menuUbahHarga(ArrayList~Kendaraan~ daftar, Scanner sc)$ void
     }
 
     Rentable <|.. Kendaraan : Realization (implements)
@@ -351,7 +580,23 @@ classDiagram
     Kendaraan <|-- Motor : Generalization (extends)
     Kendaraan <|-- Bus : Generalization (extends)
     Main ..> Kendaraan : Dependency (manages)
+    Main ..> Mobil : Dependency (instantiates)
+    Main ..> Motor : Dependency (instantiates)
+    Main ..> Bus : Dependency (instantiates)
+    Main ..> Rentable : Dependency (uses)
 ```
+
+**Cara membaca diagram:**
+
+| Simbol | Arti |
+|:---:|---|
+| `+` / `-` | Anggota `public` / `private` |
+| `<<interface>>` / `<<abstract>>` | Penanda stereotipe interface / abstract class |
+| `*` (akhiran method) | Method abstrak |
+| `$` (akhiran) | Anggota `static` |
+| `<\|..` | *Realization*: class mengimplementasikan interface (`implements`) |
+| `<\|--` | *Generalization*: class mewarisi class lain (`extends`) |
+| `..>` | *Dependency*: class menggunakan class lain |
 
 ---
 
@@ -371,15 +616,73 @@ $$\text{Biaya Bus} = (\text{HargaPerHari} \times \text{Hari}) + (\text{BIAYA\_SO
 $$\text{Biaya Diskon} = \text{BiayaDasar} \times \left(1 - \frac{\text{Diskon}}{100}\right)$$
 * Aturan Validasi Diskon: Jika nilai diskon $< 0$ atau $> 100$, diskon secara otomatis dianggap $0\%$ (tanpa diskon).
 
+**Ringkasan konstanta biaya:**
+
+| Konstanta | Class | Nilai | Skema Penagihan |
+|---|---|---:|---|
+| `ASURANSI` | `Mobil` | Rp50.000 | Tetap (*flat*) satu kali per masa sewa |
+| `BIAYA_HELM_PER_HARI` | `Motor` | Rp10.000 | Dikalikan jumlah hari sewa |
+| `BIAYA_SOPIR_PER_HARI` | `Bus` | Rp300.000 | Dikalikan jumlah hari sewa |
+
+**Contoh perhitungan untuk sewa 3 hari** (identik dengan hasil [Bagian 8.1](#81-output-demo-otomatis-tahap-1-sd-8)):
+
+| Kendaraan | Perhitungan | Biaya Sewa |
+|---|---|---:|
+| Toyota Avanza (Mobil) | (350.000 × 3) + 50.000 | **Rp1.100.000** |
+| Honda Brio (Mobil) | (300.000 × 3) + 50.000 | **Rp950.000** |
+| Yamaha NMAX (Motor) | (120.000 × 3) + (10.000 × 3) | **Rp390.000** |
+| Hino Medium Bus (Bus) | (1.500.000 × 3) + (300.000 × 3) | **Rp5.400.000** |
+| Toyota Avanza + diskon 10% | 1.100.000 × (1 − 10/100) | **Rp990.000** |
+
+> [!IMPORTANT]
+> Diskon dikenakan pada **total biaya dasar** hasil `hitungBiayaSewa(hari)`, sehingga komponen asuransi, sewa helm, atau upah sopir ikut terdiskon. Hal ini dapat dilihat pada contoh Toyota Avanza: diskon 10% dihitung dari Rp1.100.000, bukan hanya dari tarif sewanya.
+
+---
+
+### 6.4 Alur Eksekusi Program & Siklus Status Kendaraan
+
+Alur menu utama program (satu objek `Scanner` dipakai bersama sepanjang program):
+
+```mermaid
+flowchart TD
+    A([Mulai: main]) --> B[Tampilkan menu utama RentaGo]
+    B --> C{Pilihan pengguna}
+    C -->|1| D[jalankanDemoOtomatis<br/>8 tahap simulasi]
+    C -->|2| E[jalankanModeInteraktif<br/>submenu 1 sampai 5]
+    C -->|0| F([Cetak pesan perpisahan dan keluar])
+    C -->|selain itu| G[Cetak: Pilihan tidak valid]
+    D --> B
+    E -->|submenu 0| B
+    G --> B
+```
+
+Setiap kali demo atau sesi interaktif dimulai, `buatDaftarKendaraan()` membuat **4 objek baru** sehingga kondisi awal selalu bersih.
+
+Siklus status sebuah kendaraan dikendalikan sepenuhnya oleh method `sewa()` dan `kembalikan()` (prinsip *state guarding*):
+
+```mermaid
+stateDiagram-v2
+    [*] --> Tersedia : objek dibuat
+    Tersedia --> Disewa : sewa berhasil
+    Disewa --> Tersedia : kembalikan
+    Tersedia --> Tersedia : sewa ditolak karena lama sewa kurang dari 1 hari
+    Disewa --> Disewa : sewa ditolak karena unit sedang disewa
+```
+
 ---
 
 ## 7. Implementasi Source Code & Pembahasan Detail
 
-Berikut adalah kode sumber lengkap dari keenam file yang menyusun program RentaGo disertai pembahasan konseptual dan teknis baris-per-baris:
+Berikut adalah kode sumber lengkap dari keenam file yang menyusun program RentaGo disertai pembahasan konseptual dan teknis baris-per-baris. Urutan pembahasan sengaja mengikuti alur ketergantungan, dari **kontrak** (`Rentable`), **kerangka** (`Kendaraan`), **implementasi** (`Mobil`, `Motor`, `Bus`), hingga **pemakai** (`Main`).
+
+> [!NOTE]
+> Nomor baris pada bagian "Pembahasan Kode" merujuk pada file sumber asli di folder [`src/`](src/). Setiap file juga memuat komentar penanda konsep (misalnya `// Encapsulation: ...`, `// Overriding: ...`) agar konsep OOP mudah ditemukan langsung di kode.
 
 ---
 
-### 7.1 [`Rentable.java`](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Rentable.java) (Interface)
+### 7.1 [`Rentable.java`](src/Rentable.java) (Interface)
+
+*Peran:* menetapkan **apa** yang harus mampu dilakukan setiap objek yang dapat disewa, tanpa menjelaskan **bagaimana** caranya.
 
 ```java
 // Interface: Kontrak perilaku untuk objek yang dapat disewa
@@ -395,10 +698,13 @@ public interface Rentable {
 * **Baris 3**: Method `sewa(String namaPenyewa, int lamaHari)` mengembalikan tipe `boolean` untuk mengindikasikan apakah transaksi sewa disetujui (`true`) atau ditolak (`false`).
 * **Baris 4**: Method `kembalikan()` bertipe `void` untuk memproses pengembalian unit kendaraan ke garasi rental.
 * **Baris 5**: Method `isTersedia()` mengembalikan `boolean` untuk memeriksa status ketersediaan kendaraan saat itu.
+* **Catatan**: Method pada interface tidak ditulis dengan modifier `public abstract` karena secara bawaan seluruh method interface bersifat publik dan abstrak.
 
 ---
 
-### 7.2 [`Kendaraan.java`](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Kendaraan.java) (Abstract Superclass)
+### 7.2 [`Kendaraan.java`](src/Kendaraan.java) (Abstract Superclass)
+
+*Peran:* inti sistem. Class ini menampung seluruh atribut dan perilaku yang sama pada semua kendaraan, memenuhi kontrak `Rentable`, serta menyisakan dua method abstrak untuk dilengkapi subclass.
 
 ```java
 import java.text.DecimalFormat;
@@ -546,9 +852,17 @@ public abstract class Kendaraan implements Rentable {
 * **Baris 100-106 (Pengembalian)**: Mereset `tersedia` menjadi `true`, nama menjadi `"-"`, dan lama sewa menjadi `0`.
 * **Baris 119-125 (Format Rupiah)**: Helper statis menggunakan `DecimalFormatSymbols` dengan grouping separator titik (`.`) sehingga angka nominal tercetak standar format Indonesia (contoh: `Rp1.100.000`).
 
+**Catatan tambahan yang perlu diperhatikan:**
+* `tampilkanInfo()` mencetak data umum kendaraan dan memanggil `getJenis()` (method abstrak) untuk menampilkan jenis. Dengan demikian superclass sendiri sudah memanfaatkan polimorfisme tanpa perlu mengetahui subclass-nya.
+* `idKendaraan` hanya diisi satu kali melalui constructor dan **tidak memiliki setter**, sehingga identitas kendaraan tidak dapat diubah setelah objek dibuat.
+* Pada `formatRupiah()`, nilai dikonversi dengan `(long) nominal` sehingga bagian desimal dibuang (bukan dibulatkan) sebelum diformat.
+* Urutan pengecekan pada `sewa()` sengaja memeriksa **ketersediaan lebih dahulu**, baru kemudian validitas lama sewa.
+
 ---
 
-### 7.3 [`Mobil.java`](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Mobil.java) (Subclass Konkret)
+### 7.3 [`Mobil.java`](src/Mobil.java) (Subclass Konkret)
+
+*Peran:* kendaraan roda empat dengan atribut tambahan `jumlahPintu` dan biaya asuransi tetap per masa sewa.
 
 ```java
 // Inheritance: Mobil mewarisi class Kendaraan
@@ -611,7 +925,9 @@ public class Mobil extends Kendaraan {
 
 ---
 
-### 7.4 [`Motor.java`](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Motor.java) (Subclass Konkret)
+### 7.4 [`Motor.java`](src/Motor.java) (Subclass Konkret)
+
+*Peran:* kendaraan roda dua dengan atribut tambahan `kapasitasCC` dan biaya sewa helm yang ditagih per hari.
 
 ```java
 // Inheritance: Motor mewarisi class Kendaraan
@@ -666,14 +982,17 @@ public class Motor extends Kendaraan {
 ```
 
 #### Pembahasan Kode:
-* Subclass `Motor` menambahkan atribut privat `kapasitasCC` dengan setter ber-validasi $> 0$.
-* Biaya sewa helm diatur melalui konstanta `BIAYA_HELM_PER_HARI = 10000`.
-* Method `hitungBiayaSewa(int hari)` mengalikan biaya helm dengan lama hari sewa: `(getHargaPerHari() * hari) + (BIAYA_HELM_PER_HARI * hari)`.
-* Method `tampilkanInfo()` mencetak baris kapasitas mesin dengan satuan `cc`.
+* **Inheritance & Constructor Chaining**: `Motor extends Kendaraan`; constructor memanggil `super(idKendaraan, merek, hargaPerHari)` terlebih dahulu, lalu mengisi `kapasitasCC` melalui setter.
+* **Encapsulation**: Subclass `Motor` menambahkan atribut privat `kapasitasCC` dengan setter ber-validasi $> 0$.
+* **Konstanta biaya**: Biaya sewa helm diatur melalui konstanta `BIAYA_HELM_PER_HARI = 10000`.
+* **Overriding formula biaya**: Method `hitungBiayaSewa(int hari)` mengalikan biaya helm dengan lama hari sewa: `(getHargaPerHari() * hari) + (BIAYA_HELM_PER_HARI * hari)`. Berbeda dengan `Mobil`, komponen tambahan di sini **bertambah seiring jumlah hari**, bukan tetap.
+* **Overriding `getJenis()` dan `tampilkanInfo()`**: `getJenis()` mengembalikan `"Motor"`. Method `tampilkanInfo()` memanggil `super.tampilkanInfo()` lalu mencetak baris kapasitas mesin dengan satuan `cc`.
 
 ---
 
-### 7.5 [`Bus.java`](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Bus.java) (Subclass Konkret)
+### 7.5 [`Bus.java`](src/Bus.java) (Subclass Konkret)
+
+*Peran:* kendaraan berkapasitas besar dengan atribut tambahan `kapasitasPenumpang` dan upah sopir harian yang selalu ikut ditagihkan.
 
 ```java
 // Inheritance: Bus mewarisi class Kendaraan
@@ -728,14 +1047,17 @@ public class Bus extends Kendaraan {
 ```
 
 #### Pembahasan Kode:
-* Subclass `Bus` mengelola atribut privat `kapasitasPenumpang`.
-* Biaya sopir per hari ditetapkan melalui konstanta `BIAYA_SOPIR_PER_HARI = 300000`.
-* Formula `hitungBiayaSewa(int hari)` memperhitungkan upah sopir harian dikalikan durasi sewa: `(getHargaPerHari() * hari) + (BIAYA_SOPIR_PER_HARI * hari)`.
-* Method `tampilkanInfo()` mencetak kapasitas penumpang dengan satuan `penumpang`.
+* **Inheritance & Constructor Chaining**: `Bus extends Kendaraan`; constructor memanggil `super(idKendaraan, merek, hargaPerHari)` terlebih dahulu, lalu mengisi `kapasitasPenumpang` melalui setter.
+* **Encapsulation**: Subclass `Bus` mengelola atribut privat `kapasitasPenumpang` dengan setter ber-validasi $> 0$.
+* **Konstanta biaya**: Biaya sopir per hari ditetapkan melalui konstanta `BIAYA_SOPIR_PER_HARI = 300000`.
+* **Overriding formula biaya**: Formula `hitungBiayaSewa(int hari)` memperhitungkan upah sopir harian dikalikan durasi sewa: `(getHargaPerHari() * hari) + (BIAYA_SOPIR_PER_HARI * hari)`.
+* **Overriding `getJenis()` dan `tampilkanInfo()`**: `getJenis()` mengembalikan `"Bus"`. Method `tampilkanInfo()` memanggil `super.tampilkanInfo()` lalu mencetak kapasitas penumpang dengan satuan `penumpang`.
 
 ---
 
-### 7.6 [`Main.java`](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Main.java) (Driver Class: Demo Otomatis & Menu CLI Interaktif)
+### 7.6 [`Main.java`](src/Main.java) (Driver Class: Demo Otomatis & Menu CLI Interaktif)
+
+*Peran:* titik masuk program (*entry point*) sekaligus "pengguna" seluruh class lainnya. Class ini mengatur menu, membuat objek, dan menjalankan skenario demo maupun sesi interaktif.
 
 ```java
 import java.util.ArrayList;
@@ -1082,9 +1404,29 @@ public class Main {
   1. `jalankanDemoOtomatis()`: Menjalankan eksekusi deterministik untuk pengujian akademis 8 tahap.
   2. `jalankanModeInteraktif()`: Menyediakan menu CRUD operasional rental kendaraan.
 
+**Peta method pada `Main`:**
+
+| Method | Akses | Tugas | Konsep yang Ditunjukkan |
+|---|:---:|---|---|
+| `main` | `public static` | Loop menu utama: 1 demo, 2 interaktif, 0 keluar | Satu `Scanner` untuk seluruh program |
+| `buatDaftarKendaraan` | `public static` | Membuat 4 objek awal dalam `ArrayList<Kendaraan>` | Inheritance, constructor chaining, koleksi bertipe superclass |
+| `jalankanDemoOtomatis` | `public static` | Menjalankan 8 tahap simulasi | Polymorphism, Encapsulation, Interface |
+| `jalankanModeInteraktif` | `public static` | Loop submenu 1 s.d. 5 dan 0 | Pengarah ke method `menu...` |
+| `menuLihatDaftar` | `private static` | Mencetak info seluruh kendaraan | Runtime polymorphism (`tampilkanInfo()`) |
+| `menuHitungBiaya` | `private static` | Meminta ID, hari, dan diskon, lalu menghitung biaya | Overloading `hitungBiayaSewa` |
+| `menuSewaKendaraan` | `private static` | Meminta ID, nama, dan lama sewa (Enter = 1 hari) | Overloading `sewa`, aturan bisnis |
+| `menuKembalikanKendaraan` | `private static` | Memeriksa status lalu memanggil `kembalikan()` | Kontrak interface `Rentable` |
+| `menuUbahHarga` | `private static` | Mengubah harga lewat setter | Encapsulation (validasi di setter) |
+| `bacaInt`, `bacaDouble` | `public static` | Membaca angka dan mengulang sampai valid | Pemrograman defensif |
+| `bacaString` | `public static` | Membaca teks dengan `nextLine().trim()` | Pola baca masukan yang aman |
+| `cariKendaraan` | `public static` | Mencari kendaraan berdasarkan ID tanpa membedakan huruf besar/kecil | Pencarian pada koleksi |
+| `formatRupiah` | `public static` | Mendelegasikan ke `Kendaraan.formatRupiah` | Penggunaan ulang kode |
+
 ---
 
 ## 8. Hasil Pengujian, Output Eksekusi, & Analisis Hasil
+
+Setelah kode dibahas, bagian ini membuktikan bahwa program benar-benar berjalan sesuai rancangan. Pembuktian dilakukan melalui tiga lapis: **demo otomatis** (skenario terstruktur), **sesi interaktif** (penggunaan nyata, termasuk input salah), dan **13 test case** (verifikasi per perilaku).
 
 ### 8.1 Output Demo Otomatis (Tahap 1 s.d. 8)
 
@@ -1157,6 +1499,19 @@ MTR-001 | Yamaha NMAX     | Disewa oleh Sari (1 hari)
 BUS-001 | Hino Medium Bus | Tersedia
 ==============================================
 ```
+
+Peta cepat antara tahap demo dan konsep OOP yang dibuktikannya:
+
+| Tahap | Judul Output | Konsep yang Dibuktikan |
+|:---:|---|---|
+| 1 | Daftar Kendaraan | Inheritance & Method Overriding (`tampilkanInfo()`) |
+| 2 | Biaya Sewa 3 Hari | Runtime Polymorphism (`hitungBiayaSewa(3)`) |
+| 3 | Biaya dengan Diskon | Method Overloading (`hitungBiayaSewa(3, 10)`) |
+| 4 | Proses Penyewaan | Aturan bisnis & Encapsulation (`sewa()`, overload `sewa(nama)`) |
+| 5 | Validasi Encapsulation | Setter ter-validasi menolak harga negatif |
+| 6 | Pengembalian | Kontrak Interface (`kembalikan()`) |
+| 7 | Akses via Interface | Interface Polymorphism (`Rentable r = bus1`) |
+| 8 | Ringkasan Status Akhir | Konsistensi status seluruh armada |
 
 #### Analisis Hasil Demo Otomatis:
 * **Tahap [1]**: Membuktikan **Inheritance & Method Overriding**. Loop `for-each` memanggil `k.tampilkanInfo()`. Setiap kendaraan mencetak atribut umum dari superclass sekaligus atribut khususnya (`Jml Pintu` untuk Mobil, `Kapasitas cc` untuk Motor, `Kapasitas penumpang` untuk Bus).
@@ -1297,6 +1652,19 @@ Pilih menu: 0
 Terima kasih, sampai jumpa!
 ```
 
+#### Analisis Hasil Sesi Interaktif:
+
+| Langkah | Masukan Pengguna | Respons Program | Yang Dibuktikan |
+|:---:|---|---|---|
+| 1 | Menu mode interaktif diisi `abc` | `Input harus berupa angka.` lalu menu diminta ulang | Penanganan input defensif (`NumberFormatException`) |
+| 2 | Hitung biaya: ID `MBL-001`, lama sewa `tiga` | `Input harus berupa angka.` lalu diminta ulang | Validasi input angka pada setiap prompt |
+| 3 | Lama sewa `3`, diskon `10` | `Rp990.000` | Overloading `hitungBiayaSewa(int, double)` (setara TC-04) |
+| 4 | Sewa `MBL-001` oleh Fakhri, 3 hari | `Berhasil: ...` | Transaksi sewa valid (setara TC-06) |
+| 5 | Sewa `MBL-001` oleh Budi | `Gagal   : Toyota Avanza sedang disewa...` | Aturan ketersediaan (setara TC-07) |
+| 6 | Ubah harga `MBL-002` menjadi `-5000` | `Gagal   : Harga harus lebih dari 0...`; harga tetap `Rp300.000` | Setter ter-validasi (setara TC-10) |
+| 7 | Kembalikan `MBL-001` | `Toyota Avanza telah dikembalikan.` | Pengembalian unit (setara TC-09) |
+| 8 | Menu `0` lalu `0` | Kembali ke menu utama, kemudian keluar | Alur menu berjalan tanpa crash |
+
 ---
 
 ### 8.3 Verifikasi Mandiri 13 Test Case (TC-01 s.d. TC-13)
@@ -1319,9 +1687,31 @@ Seluruh 13 skenario uji yang didefinisikan pada PRD diuji secara komputasional d
 | **TC-12** | Polimorfisme Interface | `Rentable r = bus1; r.isTersedia()` | Return `true` | `true` | **LULUS** |
 | **TC-13** | Constructor Chaining | `new Mobil(...)` | Nilai superclass terisi via `super()` | Terisi presisi di superclass | **LULUS** |
 
+**Pemetaan test case terhadap konsep OOP:**
+
+| Konsep | Test Case yang Memverifikasi |
+|---|---|
+| **Encapsulation** | TC-06, TC-07, TC-08, TC-09, TC-10 |
+| **Inheritance** | TC-13 |
+| **Polymorphism (Overloading)** | TC-04, TC-05 |
+| **Polymorphism (Overriding & Runtime)** | TC-01, TC-02, TC-03, TC-11 |
+| **Abstract Class** | TC-01, TC-02, TC-03 (implementasi `hitungBiayaSewa` oleh tiap subclass) |
+| **Interface** | TC-12 |
+
+**Hasil akhir: 13 dari 13 test case LULUS.**
+
 ---
 
 ## 9. Panduan Kompilasi dan Eksekusi
+
+Bagian ini ditujukan bagi siapa pun yang ingin menjalankan program RentaGo secara mandiri.
+
+**Prasyarat:** JDK 11 atau yang lebih baru telah terpasang. Periksa dengan perintah berikut; keduanya harus menampilkan nomor versi:
+
+```bash
+java -version
+javac -version
+```
 
 ### 9.1 Melalui Command Prompt / PowerShell / Linux Terminal
 
@@ -1329,6 +1719,7 @@ Seluruh 13 skenario uji yang didefinisikan pada PRD diuji secara komputasional d
    ```bash
    cd "e:\Folder Tugas-Q\SEMESTER 3\Praktikum OOP\Project-Praktikum-OOP\LabSession3B"
    ```
+   > Path di atas adalah lokasi pada perangkat penulis. Sesuaikan dengan lokasi folder `LabSession3B` di perangkat Anda.
 
 2. **Kompilasi Seluruh File Java** ke dalam folder `out`:
    ```bash
@@ -1340,13 +1731,33 @@ Seluruh 13 skenario uji yang didefinisikan pada PRD diuji secara komputasional d
    java -cp out Main
    ```
 
+Setelah program berjalan, menu utama akan tampil dengan pilihan berikut:
+
+| Pilihan | Fungsi |
+|:---:|---|
+| `1` | Menjalankan demo otomatis 8 tahap |
+| `2` | Masuk ke mode interaktif (lihat daftar, hitung biaya, sewa, kembalikan, ubah harga) |
+| `0` | Keluar dari program |
+
 ### 9.2 Melalui Integrated Development Environment (IDE)
-* **Visual Studio Code**: Buka folder `LabSession3B`, buka file [`Main.java`](file:///e:/Folder Tugas-Q/SEMESTER 3/Praktikum OOP/Project-Praktikum-OOP/LabSession3B/src/Main.java), lalu klik tombol **Run Java** di sudut kanan atas.
+
+* **Visual Studio Code**: Buka folder `LabSession3B`, buka file [`Main.java`](src/Main.java), lalu klik tombol **Run Java** di sudut kanan atas.
 * **IntelliJ IDEA / Eclipse / NetBeans**: *Open / Import Project* pada direktori `LabSession3B`, pastikan folder `src` ditandai sebagai *Sources Root*, lalu jalankan class `Main`.
+
+### 9.3 Pemecahan Masalah Umum (Troubleshooting)
+
+| Gejala | Penyebab Umum | Solusi |
+|---|---|---|
+| `javac` atau `java` tidak dikenali (*not recognized* / *command not found*) | JDK belum terpasang atau belum masuk ke `PATH` | Pasang JDK, pastikan `PATH`/`JAVA_HOME` sudah diatur, lalu cek ulang dengan `javac -version` |
+| `directory not found: out` saat kompilasi | Pada JDK lama, folder tujuan harus sudah ada | Buat folder terlebih dahulu dengan `mkdir out`, lalu ulangi kompilasi |
+| `Could not find or load main class Main` | Belum dikompilasi, atau perintah dijalankan dari folder yang salah | Pastikan berada di folder `LabSession3B`, jalankan ulang `javac -d out src/*.java`, lalu `java -cp out Main` |
+| Muncul pesan `Input harus berupa angka.` | Masukan pada prompt angka berisi huruf atau karakter lain | Ini perilaku normal program; masukkan angka yang valid pada prompt berikutnya |
 
 ---
 
-## 10. Kesimpulan
+## 10. Kesimpulan dan Saran
+
+### 10.1 Kesimpulan
 
 Berdasarkan seluruh tahapan perancangan, implementasi, dan pengujian yang telah dilakukan, dapat disimpulkan bahwa:
 1. Program **RentaGo — Sistem Manajemen Rental Kendaraan** telah berhasil dibangun dan berhasil memenuhi **seluruh ketentuan wajib (5 konsep)** dan **seluruh ketentuan tambahan (4 poin)** dari lembar penugasan **Praktik Lab Session 3B**.
@@ -1358,6 +1769,45 @@ Berdasarkan seluruh tahapan perancangan, implementasi, dan pengujian yang telah 
    * **Interface** menegakkan kontrak formal kemampuan persewaan (`Rentable`).
 3. Penambahan mode interaktif dengan penanganan input defensif (*try-catch NumberFormatException*) menghasilkan pengalaman pengguna yang ramah dan bebas crash.
 
----
-*Laporan Praktikum ini disusun oleh **Muhammad Fakhri Abdullah** (NIM: **L0325030**, Kelas: **3 B**) sebagai dokumentasi resmi dan materi pertanggungjawaban asistensi Praktik Lab Session 3B.*
+### 10.2 Saran Pengembangan Lanjutan
 
+Rancangan berbasis OOP pada RentaGo membuka banyak peluang pengembangan tanpa perlu membongkar kode yang sudah ada. Beberapa ide yang dapat dipertimbangkan:
+* **Menambah jenis kendaraan baru** (misalnya Truk atau Sepeda Listrik) cukup dengan membuat subclass baru dari `Kendaraan` yang mengimplementasikan `hitungBiayaSewa()` dan `getJenis()`, tanpa mengubah `Main` maupun subclass lain (sejalan dengan *Open/Closed Principle*).
+* **Penyimpanan data permanen** ke file atau basis data agar status sewa tidak hilang saat program ditutup.
+* **Riwayat transaksi dan total biaya** yang tercatat otomatis saat kendaraan disewa dan dikembalikan.
+* **Penanganan kesalahan dengan exception khusus** (*custom exception*) sebagai pengganti pesan `println` pada setter, sehingga pemanggil dapat menentukan sendiri cara menanganinya.
+* **Pengujian otomatis** menggunakan kerangka kerja seperti JUnit untuk menggantikan verifikasi manual 13 test case.
+* **Antarmuka grafis** (GUI) sebagai alternatif menu CLI.
+
+---
+
+## Lampiran A: Glosarium Istilah
+
+| Istilah | Penjelasan Singkat |
+|---|---|
+| **Class** | Cetak biru yang mendefinisikan atribut dan perilaku sekelompok objek |
+| **Objek (Instance)** | Wujud nyata dari sebuah class yang dibuat dengan `new` |
+| **Atribut (Field)** | Variabel milik objek yang menyimpan keadaannya |
+| **Method** | Fungsi milik class/objek yang mendefinisikan perilakunya |
+| **Constructor** | Method khusus yang dipanggil saat objek dibuat untuk mengisi nilai awal |
+| **Encapsulation** | Membungkus data dan menyembunyikannya dari akses langsung di luar class |
+| **Getter / Setter** | Method untuk membaca / mengubah atribut `private` secara terkendali |
+| **Inheritance** | Pewarisan atribut dan method dari superclass ke subclass |
+| **Superclass / Subclass** | Class induk / class turunan dalam hubungan pewarisan |
+| **`super()`** | Pemanggilan constructor superclass dari constructor subclass |
+| **Polymorphism** | Kemampuan satu nama method atau tipe memiliki banyak bentuk perilaku |
+| **Overriding** | Subclass menulis ulang method milik superclass dengan signature yang sama |
+| **Overloading** | Beberapa method bernama sama dengan daftar parameter berbeda |
+| **Dynamic Method Dispatch** | Penentuan method yang dipanggil berdasarkan tipe objek nyata saat runtime |
+| **Abstract Class** | Class yang tidak dapat diinstansiasi dan boleh memuat method abstrak |
+| **Abstract Method** | Method tanpa badan yang wajib diimplementasikan oleh subclass konkret |
+| **Interface** | Kontrak perilaku murni yang diimplementasikan oleh class |
+| **`@Override`** | Anotasi agar compiler memverifikasi bahwa sebuah method benar-benar meng-override |
+| **`ArrayList`** | Struktur data daftar berukuran dinamis dari pustaka standar Java |
+| **`Scanner`** | Class standar Java untuk membaca masukan dari pengguna |
+| **OCP (Open/Closed Principle)** | Prinsip desain: terbuka untuk perluasan, tertutup untuk perubahan |
+| **Test Case (TC)** | Skenario uji dengan masukan dan hasil yang diharapkan untuk memverifikasi perilaku program |
+
+---
+
+*Laporan Praktikum ini disusun oleh **Muhammad Fakhri Abdullah** (NIM: **L0325030**, Kelas: **3 B**) sebagai dokumentasi resmi dan materi pertanggungjawaban asistensi Praktik Lab Session 3B.*
